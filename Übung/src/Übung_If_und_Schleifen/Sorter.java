@@ -2,6 +2,7 @@ package Übung_If_und_Schleifen;
 
 import java.util.Arrays;
 
+
 public class Sorter {
 
 	/*
@@ -11,24 +12,32 @@ public class Sorter {
 	 * Hierbei sollen die Zahlen in aufsteigender Reihenfolge sortiert sein.
 	 * Beispiel: sort({10,5,42,17,108}) --> {5,10,17,42,108}
 	 */
-	
+	public int[] arrayübertragen(int p[]){
+		int a[]=new int[p.length];
+		for(int i=0;i<p.length;i++){
+			a[i]=p[i];
+		}
+		return a;
+	}
+
 	public int[] sort(int[] toSort)
 	{
-		int sorted[]=new int[toSort.length];	
-		for(int i=0;i<toSort.length;i++){
-			sorted[i]=getsmallest(sorted);
+		int p[]=arrayübertragen(toSort);
+		boolean sorted=false;
+		while(!sorted){
+			sorted=true;
+			for(int a=0;a<=p.length-2;a++){
+				if(p[a]>p[a+1]){
+					int temp=p[a];
+					p[a]=p[a+1];
+					p[a+1]=temp;
+					sorted=false;
+				}
+			}
 		}
-		return sorted;
+		return p;
 	}
 	
-	public int getsmallest (int p[]){
-		int smallest=p[0];
-		for(int i=1;i<p.length-1;i++){
-			if(smallest>p[i]);
-			smallest=p[i];
-		}
-		return smallest;
-	}
 	/*
 	 * Diese Methode soll das uebergebene Array auch sortieren, allerdings soll diesmal direkt das Array
 	 * sortiert werden und keine Kopie angelegt werden. Entsprechend hat diese Methode auch
@@ -39,8 +48,20 @@ public class Sorter {
 	 * --> a ist jetzt {5,10,17,42,108}
 	 */
 	public void sort2(int[] toSort)
-	{
-		
+	{	
+		int p[]=toSort;
+		boolean sorted=false;
+		while(!sorted){
+			sorted=true;
+			for(int a=0;a<=p.length-2;a++){
+				if(p[a]>p[a+1]){
+					int temp=p[a];
+					p[a]=p[a+1];
+					p[a+1]=temp;
+					sorted=false;
+				}
+			}
+		}
 	}
 	
 	/*
