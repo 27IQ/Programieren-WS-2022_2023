@@ -1,4 +1,4 @@
-package Basic;
+package Übung_Basic;
 // Das vorliegende Programm gibt den String "..." auf der Kommandozeile aus. Veraendern Sie das Programm so, dass es "Hello, World!" ausgibt.
 public class HelloWorld {
 

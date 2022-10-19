@@ -1,4 +1,4 @@
-package Basic;
+package Übung_Basic;
 // Integer-Werte addieren
 // Modifizieren Sie die Methode "add" so, dass sie die Variablen "a" und "b" addiert und das Ergebnis zurueckgibt.
 public class AddIntegers {

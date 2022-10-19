@@ -1,4 +1,4 @@
-package Basic;
+package Übung_Basic;
 // Begrüssung
 //
 // Die Methode greeting soll eine Begrüssung abhängig vom als Parameter
