@@ -9,8 +9,48 @@ public class CaesarChiffrierung {
 	* Natuerlich laesst sich die Aufgabe auch ohne dieses Wissen loesen,
 	* vielleicht nur nicht so elegant.
 	*/
+	public static char[] getArray(String text){
+		char[] letters=new char[text.length()];
+		for (int i=0;i<text.length();i++){
+			letters[i]=text.charAt(i);
+		}
+		return letters;
+	}
+
+	public static String constructString(char[] letters){
+		String text="";
+		for (int i = 0; i < letters.length; i++) {
+			text=text+letters[i];
+		}
+		return text;
+	}
+
 	public static String encrypt(String text, int number) {
-		return null;
+		char[] letters=getArray(text);
+		if(number>0){
+			for (int i=0;i<text.length();i++){
+				for(int a=0;a<number;a++){
+					if(letters[i]=='z'){
+						letters[i]='a';
+					}else if(letters[i]=='.'||letters[i]=='!'||letters[i]==' '||letters[i]=='?'||letters[i]=='-'||letters[i]==','||letters[i]==':'||letters[i]=='"');
+					else{
+						letters[i]=++letters[i];
+					}
+				}
+			}
+		}else{
+			for (int i=0;i<text.length()-1;i++){
+				for(int a=number;a<0;a++){
+					if(letters[i]=='a'){
+						letters[i]='z';
+					}else if(letters[i]=='.'||letters[i]=='!'||letters[i]==' '||letters[i]=='?'||letters[i]=='-'||letters[i]==','||letters[i]==':'||letters[i]=='"');
+					else{
+						letters[i]=++letters[i];
+					}
+				}
+			}
+		}
+		return constructString(letters);
 	}
 
 	public static String decrypt(String text, int number) {
