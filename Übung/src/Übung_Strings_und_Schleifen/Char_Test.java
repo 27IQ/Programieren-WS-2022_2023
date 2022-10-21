@@ -6,5 +6,7 @@ public class Char_Test {
         System.out.println(++a);
         a='a';
         System.out.println(--a);
+        a='ö';
+        System.out.println(--a);
     }
 }
