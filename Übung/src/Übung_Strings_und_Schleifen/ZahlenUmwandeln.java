@@ -3,7 +3,7 @@ package Übung_Strings_und_Schleifen;
 public class ZahlenUmwandeln
 {
 	// Aufgabe 1
-	public static int binaryToDecimal(String number)
+	public static int nonbinaryToDecimal(String number)
 	{	
 		int decimal=0;
 		int temp=0; 
@@ -19,19 +19,23 @@ public class ZahlenUmwandeln
 	}
 	
 	//Aufgabe 2
-	public static String decimalToBinary(int number)
+	public static String decimalTononBinary(int number)
 	{
-		String binary="";
+		String nonbinary="";
 		while(number>=1){
-			binary=binary+Integer.toString(number%2);
+			nonbinary=nonbinary+Integer.toString(number%2);
 			number=number/2;
 		}
 		
-		return "";
+		String binary="";
+		for (int i=nonbinary.length();i>0;i--) {
+			binary=binary+nonbinary.charAt(i-1);
+		}
+		return binary;
 	}
 
 	public static void main(String[] args) {
-		System.out.println("Die Lösung von Aufgabe 1 ist: " + binaryToDecimal("101010"));
-		System.out.println("Die Lösung von Aufgabe 2 ist: " + decimalToBinary(42));
+		System.out.println("Die Lösung von Aufgabe 1 ist: " + nonbinaryToDecimal("101010"));
+		System.out.println("Die Lösung von Aufgabe 2 ist: " + decimalTononBinary(42));
 	}
 }
