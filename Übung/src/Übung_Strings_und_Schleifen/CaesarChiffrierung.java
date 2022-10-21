@@ -54,7 +54,32 @@ public class CaesarChiffrierung {
 	}
 
 	public static String decrypt(String text, int number) {
-		return null;
+		char[] letters=splitString(text);
+		if(number>0){
+			for (int i=0;i<text.length();i++){
+				for(int a=0;a<number;a++){
+					if(letters[i]=='a'){
+						letters[i]='z';
+					}else if(letters[i]=='.'||letters[i]=='!'||letters[i]==' '||letters[i]=='?'||letters[i]=='-'||letters[i]==','||letters[i]==':'||letters[i]=='"');
+					else{
+						letters[i]=--letters[i];
+					}
+				}
+			}
+		}else{
+			for (int i=0;i<text.length()-1;i++){
+				for(int a=number;a<0;a++){
+					if(letters[i]=='z'){
+						letters[i]='a';
+					}else if(letters[i]=='.'||letters[i]=='!'||letters[i]==' '||letters[i]=='?'||letters[i]=='-'||letters[i]==','||letters[i]==':'||letters[i]=='"');
+					else{
+						letters[i]=++letters[i];
+					}
+				}
+			}
+		}
+		return constructString(letters);
+
 	}
 	
 	 //Die Main Methode. Du kannst dir hier verschiedene Testfaelle ausdenken und testen.
