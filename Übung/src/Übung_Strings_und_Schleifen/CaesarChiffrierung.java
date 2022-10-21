@@ -9,7 +9,7 @@ public class CaesarChiffrierung {
 	* Natuerlich laesst sich die Aufgabe auch ohne dieses Wissen loesen,
 	* vielleicht nur nicht so elegant.
 	*/
-	public static char[] getArray(String text){
+	public static char[]splitString(String text){
 		char[] letters=new char[text.length()];
 		for (int i=0;i<text.length();i++){
 			letters[i]=text.charAt(i);
@@ -26,7 +26,7 @@ public class CaesarChiffrierung {
 	}
 
 	public static String encrypt(String text, int number) {
-		char[] letters=getArray(text);
+		char[] letters=splitString(text);
 		if(number>0){
 			for (int i=0;i<text.length();i++){
 				for(int a=0;a<number;a++){
