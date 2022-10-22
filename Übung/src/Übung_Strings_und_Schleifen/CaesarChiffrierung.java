@@ -32,6 +32,8 @@ public class CaesarChiffrierung {
 				for(int a=0;a<number;a++){
 					if(letters[i]=='z'){
 						letters[i]='a';
+					}if(letters[i]=='Z'){
+						letters[i]='A';
 					}else if(letters[i]=='.'||letters[i]=='!'||letters[i]==' '||letters[i]=='?'||letters[i]=='-'||letters[i]==','||letters[i]==':'||letters[i]=='"');
 					else{
 						letters[i]=++letters[i];
@@ -43,6 +45,8 @@ public class CaesarChiffrierung {
 				for(int a=number;a<0;a++){
 					if(letters[i]=='a'){
 						letters[i]='z';
+					}if(letters[i]=='A'){
+						letters[i]='Z';
 					}else if(letters[i]=='.'||letters[i]=='!'||letters[i]==' '||letters[i]=='?'||letters[i]=='-'||letters[i]==','||letters[i]==':'||letters[i]=='"');
 					else{
 						letters[i]=++letters[i];
@@ -60,6 +64,8 @@ public class CaesarChiffrierung {
 				for(int a=0;a<number;a++){
 					if(letters[i]=='a'){
 						letters[i]='z';
+					}if(letters[i]=='A'){
+						letters[i]='Z';
 					}else if(letters[i]=='.'||letters[i]=='!'||letters[i]==' '||letters[i]=='?'||letters[i]=='-'||letters[i]==','||letters[i]==':'||letters[i]=='"');
 					else{
 						letters[i]=--letters[i];
@@ -71,6 +77,8 @@ public class CaesarChiffrierung {
 				for(int a=number;a<0;a++){
 					if(letters[i]=='z'){
 						letters[i]='a';
+					}if(letters[i]=='Z'){
+						letters[i]='A';
 					}else if(letters[i]=='.'||letters[i]=='!'||letters[i]==' '||letters[i]=='?'||letters[i]=='-'||letters[i]==','||letters[i]==':'||letters[i]=='"');
 					else{
 						letters[i]=++letters[i];
@@ -96,5 +104,6 @@ public class CaesarChiffrierung {
 				+ "\nDeine Methode gibt Folgendes zurueck: "+decrypt("yzab", 2));
 		System.out.println("Wenn man den String \"Kdoor Zhow!\" mit der number 3 decryptt, sollte das Ergebnis \"Hallo Welt!\" lauten."
 				+ "\nDeine Methode gibt Folgendes zurueck: "+decrypt("Kdoor Zhow!", 3));		
+		System.out.println(encrypt("Hallo Welt!", 7));
 	}
 }

@@ -1,9 +1,11 @@
 package Übung_Strings_und_Schleifen;
 
+
+
 public class ZahlenUmwandeln
 {
 	// Aufgabe 1
-	public static int nonbinaryToDecimal(String number)
+	public static int binaryToDecimal(String number)
 	{	
 		int decimal=0;
 		int temp=0; 
@@ -19,7 +21,7 @@ public class ZahlenUmwandeln
 	}
 	
 	//Aufgabe 2
-	public static String decimalTononBinary(int number)
+	public static String decimalToBinary(int number)
 	{
 		String nonbinary="";
 		while(number>=1){
@@ -31,11 +33,15 @@ public class ZahlenUmwandeln
 		for (int i=nonbinary.length();i>0;i--) {
 			binary=binary+nonbinary.charAt(i-1);
 		}
+
+		if(binary==""){
+			binary="0";
+		}
 		return binary;
 	}
 
 	public static void main(String[] args) {
-		System.out.println("Die Lösung von Aufgabe 1 ist: " + nonbinaryToDecimal("101010"));
-		System.out.println("Die Lösung von Aufgabe 2 ist: " + decimalTononBinary(42));
+		System.out.println("Die Lösung von Aufgabe 1 ist: " + binaryToDecimal("0"));
+		System.out.println("Die Lösung von Aufgabe 2 ist: " + decimalToBinary(0));
 	}
 }
