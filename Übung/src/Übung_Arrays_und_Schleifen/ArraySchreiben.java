@@ -8,7 +8,7 @@ public class ArraySchreiben {
 		//hier beginnt der zu bearbeitende Bereich
 		int[] a=new int[laenge];
 		for(int i=0;i<laenge;i++){
-			
+			a[i]=i;
 		}
 		return a; 
 		//hier endet der zu bearbeitende Bereich
