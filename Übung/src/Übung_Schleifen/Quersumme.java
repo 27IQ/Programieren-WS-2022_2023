@@ -8,11 +8,14 @@ public class Quersumme {
 	 */
 	public static int berechneQuersumme(int zahl) {
 		String zahlen=Integer.toString(zahl);
+		if(zahl<0){
+			zahlen.substring(1);
+		}
 		int Quersumme=0;
 		for(int i=0;i<zahlen.length();i++){
-			Quersumme+=Integer.parseInt(""+zahlen.charAt(i));
+			
 		}
-		return Quersumme;
+		return 0;
 	}
 	
 	//Die Main Methode. Du kannst dir hier verschiedene Testfaelle ausdenken und testen.
