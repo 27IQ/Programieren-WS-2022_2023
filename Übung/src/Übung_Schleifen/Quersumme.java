@@ -13,9 +13,9 @@ public class Quersumme {
 		}
 		int Quersumme=0;
 		for(int i=0;i<zahlen.length();i++){
-			
+			Quersumme+=Integer.parseInt(""+zahlen.charAt(i));
 		}
-		return 0;
+		return Quersumme;
 	}
 	
 	//Die Main Methode. Du kannst dir hier verschiedene Testfaelle ausdenken und testen.
