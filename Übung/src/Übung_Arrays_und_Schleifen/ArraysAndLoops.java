@@ -1,6 +1,7 @@
 package Übung_Arrays_und_Schleifen;
 
 
+
 /*
  * In dieser Aufgabe soll das Zusammenspiel von Arrays und For-Schleifen geuebt
  * werden. In den meisten Methoden ist dem Parameter elements das Schluessel-
