@@ -14,11 +14,26 @@ public class DatentypenBsp {
 
         System.out.println((Integer.parseInt((a+Integer.toString(10)).substring(6)))+1); // 10 zurückconvertiert  zu int und +1: 11
 
+
     }
 
 
 
     public static void main(String[] args) {
-        Beispiele();
+        //Beispiele();
+
+        /*int i=1;
+        System.out.println(i++);
+        System.out.println(i);
+
+        System.out.println(i--);
+        System.out.println(i);
+
+        System.out.println(++i);
+        System.out.println(--i);*/
+
+
+
+
     }
 }

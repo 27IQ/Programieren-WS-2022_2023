@@ -13,7 +13,7 @@ public class Text {
         String tmp;
 
         for(int i=0;i<zahl.length();i++){
-            finalString+=zahlen[Integer.parseInt( tmp=""+zahl.charAt(i))];
+            finalString+=zahlen[Integer.parseInt(tmp=""+zahl.charAt(i))];
             if(i<zahl.length()-1){
                 finalString+="-";
             }
