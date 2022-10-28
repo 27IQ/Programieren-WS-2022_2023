@@ -1,5 +1,7 @@
 package Übung_Schleifen;
 
+
+
 /*
  * In dieser Klasse soll eine erste einfache Verwendung der for-Schleife
  * geuebt werden. Der Kopf der for-Schleife besteht und dem Schluesselwort for,
@@ -89,8 +91,8 @@ public class ForSchleife {
 		if(exponent==0){
 			erg=1;
 		}else{
-			for (int i = 1; i <=exponent; i++) {
-				erg=erg*2;
+			for (int i = 1; i <exponent; i++) {
+				erg=erg*base;
 			}
 		}
 		return erg;
