@@ -3,13 +3,13 @@ public class Text {
     public static String[] zahlen={"null","eins","zwei","drei","vier","fünf","sechs","sieben","acht","neun"};
 
     public static String digitToString(int z){
-        boolean negativ=false;
-        String zahl=Integer.toString(z), finalString="";
+        String finalString="";
         if(z<0){
-            negativ=true;
-            zahl=Integer.toString(z*(-1));
+            finalString="minus-"+finalString;
+            z*=-1;
         }
 
+        String zahl=Integer.toString(z);
         String tmp;
 
         for(int i=0;i<zahl.length();i++){
@@ -17,10 +17,6 @@ public class Text {
             if(i<zahl.length()-1){
                 finalString+="-";
             }
-        }
-
-        if(negativ==true){
-            finalString="minus-"+finalString;
         }
 
         return finalString;
