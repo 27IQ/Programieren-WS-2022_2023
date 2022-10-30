@@ -31,13 +31,14 @@ public class Text {
             z*=-1;
         }
 
-        int length=Integer.toString(z).length(),current=1;
+        int length=0,current=1;
 
-        
-
-        for(int i=0;i<length-1;i++){
+        while(z/current>0){
             current*=10;
+            length+=1;
         }
+        
+        current/=10;
 
         for(int i=0;i<=length-1;i++){
             finalString+=zahlen[z/current];
