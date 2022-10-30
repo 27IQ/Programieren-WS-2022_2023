@@ -10,7 +10,9 @@ public class Text {
         }
 
         String zahl=Integer.toString(z);
-        String tmp;
+
+        String tmp="";
+        if(tmp=="");    //vscode unassinged fehler unterdrückung
 
         for(int i=0;i<zahl.length();i++){
             finalString+=zahlen[Integer.parseInt(tmp=""+zahl.charAt(i))];
