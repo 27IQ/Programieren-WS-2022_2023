@@ -24,8 +24,33 @@ public class Text {
         return finalString;
     }
 
+    public static String digitToStringV2(int z){
+        String finalString="";
+        if(z<0){
+            finalString="minus-"+finalString;
+            z*=-1;
+        }
+
+        int length=Integer.toString(z).length(),current=1;
+
+        
+
+        for(int i=0;i<length-1;i++){
+            current*=10;
+        }
+
+        for(int i=0;i<=length-1;i++){
+            finalString+=zahlen[z/current];
+            z-=current*(z/current);
+            if(i<length-1){
+                finalString+="-";
+            }
+        }
+
+        return finalString;
+    }
 
     public static void main(String[] args) {
-        System.out.println(digitToString(-90));
+        System.out.println(digitToStringV2(-90));
     }
 }
