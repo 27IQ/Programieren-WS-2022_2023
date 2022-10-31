@@ -20,10 +20,10 @@ public class Pyramide {
 	 */
 	public static String machePyramide(int n) {
 		String pyramide="";
-		for(int i=1;i<n;i++){
+		for(int i=1;i<=n;i++){
 
-			for(int a=0;a<(i*2)-1-(i/2);a++){
-				pyramide+="-";
+			for(int a=0;a<(n-i);a++){
+				pyramide+=" ";
 			}
 
 			for(int a=0;a<(i*2)-1;a++){
