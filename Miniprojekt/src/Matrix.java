@@ -9,23 +9,54 @@ public class Matrix {
 	}
 
 	public void scalarMultiplication(int c) {
-
+		for(int i=0;i<values.length;i++){
+			for(int a=0;a<values[0].length;a++){
+				values[i][a]*=c;
+			}
+		}
 	}
 
 	public void add(Matrix m) {
-
+		for(int i=0;i<values.length;i++){
+			for(int a=0;a<values[0].length;a++){
+				values[i][a]+=m.values[i][a];
+			}
+		}
 	}
 
 	public int[] getColumnVector(int col) {
-		return null;
+		int[] vector=new int[values.length];
+		for(int i=0;i<values.length;i++){
+			vector[i]=values[i][col];
+		}
+		return  vector;
 	}
 
 	public boolean isEqualTo(Matrix m) {
-		return false;
+		boolean isEqual=true;
+		if(values.length!=m.values.length&&values[0].length!=m.values[0].length){
+			isEqual=false;
+		}else{
+			for(int i=0;i<values.length;i++){
+				for(int a=0;a<values[0].length;a++){
+					if(values[i][a]!=m.values[i][a]){
+						isEqual=false;
+					}				
+				}
+			}	
+		}
+		return isEqual;
 	}
 
 	public void transpose() {
+		int[][] trans=new int[values[0].length][values.length];
 
+		for(int i=0;i<values.length;i++){
+			for(int a=0;a<values[0].length;a++){
+				trans[a][i]=values[i][a];
+			}
+		}
+		values=trans;
 	}
 
 	// --------------------------------------------------------------
