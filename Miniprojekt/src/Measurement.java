@@ -27,7 +27,6 @@ public class Measurement {
 			newdata[data.length+i]=values[i];
 		}
 		data=newdata;
-		//[85, 58, 78, 61, 72, 93, 81, 79, 78, 75, 81, 93]
 	}
 
 	public int getMinimumValue() {
