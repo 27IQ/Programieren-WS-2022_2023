@@ -1,4 +1,4 @@
-package Übung_Strings_und_Schleifen;
+
 
 public class CaesarChiffrierung {
 	/*
@@ -9,89 +9,54 @@ public class CaesarChiffrierung {
 	* Natuerlich laesst sich die Aufgabe auch ohne dieses Wissen loesen,
 	* vielleicht nur nicht so elegant.
 	*/
-	public static char[]splitString(String text){
-		char[] letters=new char[text.length()];
-		for (int i=0;i<text.length();i++){
-			letters[i]=text.charAt(i);
-		}
-		return letters;
-	}
-
-	public static String constructString(char[] letters){
-		String text="";
-		for (int i = 0; i < letters.length; i++) {
-			text=text+letters[i];
-		}
-		return text;
-	}
 
 	public static String encrypt(String text, int number) {
-		char[] letters=splitString(text);
-		if(number>0){
-			for (int i=0;i<text.length();i++){
-				for(int a=0;a<number;a++){
-					if(letters[i]=='z'){
-						letters[i]='a';
-					}if(letters[i]=='Z'){
-						letters[i]='A';
-					}else if(letters[i]=='.'||letters[i]=='!'||letters[i]==' '||letters[i]=='?'||letters[i]=='-'||letters[i]==','||letters[i]==':'||letters[i]=='"');
-					else{
-						letters[i]=++letters[i];
+		String encrypted="";
+		char temp;
+		for(int a=0;a<text.length();a++){
+			temp=text.charAt(a);
+			for(int i=0;i<number;i++){
+				if(temp=='z'){
+					temp='a';
+				}else if(temp=='Z'){
+					temp='A';
+				}
+				else{
+					if(temp!='-'&&temp!=','&&temp!='.'&&temp!='!'&&temp!='?'&&temp!=' '){
+						temp++;
 					}
 				}
 			}
-		}else{
-			for (int i=0;i<text.length()-1;i++){
-				for(int a=number;a<0;a++){
-					if(letters[i]=='a'){
-						letters[i]='z';
-					}if(letters[i]=='A'){
-						letters[i]='Z';
-					}else if(letters[i]=='.'||letters[i]=='!'||letters[i]==' '||letters[i]=='?'||letters[i]=='-'||letters[i]==','||letters[i]==':'||letters[i]=='"');
-					else{
-						letters[i]=++letters[i];
-					}
-				}
-			}
+			encrypted+=temp;
 		}
-		return constructString(letters);
+		return encrypted;
 	}
 
 	public static String decrypt(String text, int number) {
-		char[] letters=splitString(text);
-		if(number>0){
-			for (int i=0;i<text.length();i++){
-				for(int a=0;a<number;a++){
-					if(letters[i]=='a'){
-						letters[i]='z';
-					}if(letters[i]=='A'){
-						letters[i]='Z';
-					}else if(letters[i]=='.'||letters[i]=='!'||letters[i]==' '||letters[i]=='?'||letters[i]=='-'||letters[i]==','||letters[i]==':'||letters[i]=='"');
-					else{
-						letters[i]=--letters[i];
+		String decrypted="";
+		char temp;
+		for(int a=0;a<text.length();a++){
+			temp=text.charAt(a);
+			for(int i=0;i<number;i++){
+				if(temp=='a'){
+					temp='z';
+				}else if(temp=='A'){
+					temp='Z';
+				}else{
+					if(temp!='-'&&temp!=','&&temp!='.'&&temp!='!'&&temp!='?'&&temp!=' '){
+						temp--;
 					}
 				}
 			}
-		}else{
-			for (int i=0;i<text.length()-1;i++){
-				for(int a=number;a<0;a++){
-					if(letters[i]=='z'){
-						letters[i]='a';
-					}if(letters[i]=='Z'){
-						letters[i]='A';
-					}else if(letters[i]=='.'||letters[i]=='!'||letters[i]==' '||letters[i]=='?'||letters[i]=='-'||letters[i]==','||letters[i]==':'||letters[i]=='"');
-					else{
-						letters[i]=++letters[i];
-					}
-				}
-			}
+			decrypted+=temp;
 		}
-		return constructString(letters);
-
+		return decrypted;
+		
 	}
 	
 	 //Die Main Methode. Du kannst dir hier verschiedene Testfaelle ausdenken und testen.
 	public static void main(String[] args) {
+		//System.out.println("Hallo Welt!".charAt(5)==' ');
 		System.out.println("Wenn man den String \"abcd\" mit der number 1 encryptt, sollte das Ergebnis \"bcde\" lauten."
 				+ "\nDeine Methode gibt Folgendes zurueck: "+encrypt("abcd", 1));
 		System.out.println("Wenn man den String \"wxyz\" mit der number 2 encryptt, sollte das Ergebnis \"yzab\" lauten."
@@ -104,6 +69,6 @@ public class CaesarChiffrierung {
 				+ "\nDeine Methode gibt Folgendes zurueck: "+decrypt("yzab", 2));
 		System.out.println("Wenn man den String \"Kdoor Zhow!\" mit der number 3 decryptt, sollte das Ergebnis \"Hallo Welt!\" lauten."
 				+ "\nDeine Methode gibt Folgendes zurueck: "+decrypt("Kdoor Zhow!", 3));		
-		System.out.println(encrypt("Hallo Welt!", 7));
+		//System.out.println(encrypt("Hallo Welt!", 7));
 	}
 }
