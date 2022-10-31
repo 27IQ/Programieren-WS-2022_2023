@@ -23,17 +23,12 @@ public class Aufgabe_3 {
         for(int i=0;i<lengths.length;i++){
             filteredArray[i]=new int[lengths[i]];
         }
-        
+
         for(int i=0;i<array.length;i++){
             offset=0;
             for(int a=0;a<array[i].length;a++){
                 if(array[i][a]!=filter){
-                    try{
-                        filteredArray[i][a-offset]=array[i][a];
-                    }catch(ArrayIndexOutOfBoundsException e){
-                        offset++;
-                        filteredArray[i][a-offset]=array[i][a];  
-                    }
+                    filteredArray[i][a-offset]=array[i][a]; 
                 }else{
                     offset++;
                 }
