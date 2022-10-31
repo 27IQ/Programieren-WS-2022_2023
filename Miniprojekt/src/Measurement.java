@@ -22,7 +22,6 @@ public class Measurement {
 		for(int i=0;i<data.length;i++){
 			newdata[i]=data[i];
 		}
-		 System.out.println("foof");
 		for(int i=0;i<values.length;i++){
 			newdata[data.length+i]=values[i];
 		}
