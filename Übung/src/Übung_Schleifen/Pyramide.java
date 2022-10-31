@@ -1,4 +1,4 @@
-package Übung_Schleifen;
+
 
 public class Pyramide {
 	
@@ -18,7 +18,7 @@ public class Pyramide {
 	 * Nach der letzten Zeile folgt KEIN Zeilenumbruch mehr.
 	 * Das Zeichen Zeilenumbruch ist das Folgende: \n
 	 */
-	public static String machePyramide(int n) {
+	public static String machePyramideLayer(int n) {
 		String pyramide="";
 		for(int i=1;i<=n;i++){
 
@@ -29,11 +29,22 @@ public class Pyramide {
 			for(int a=0;a<(i*2)-1;a++){
 				pyramide+="*";
 			}
-			pyramide+="\n";
+
+			if(i<n){
+				pyramide+="\n";
+			}
 		}
 		return pyramide;
 	}
-	
+	 
+	public static String machePyramide(int n){
+		int layer=0;
+		while(n>0){
+			n-=2;
+			layer++;
+		}
+		return machePyramideLayer(layer);
+	}
 	/*
 	 * Beispielmethode.
 	 * So sieht die Loesung fuer n=5 aus.
