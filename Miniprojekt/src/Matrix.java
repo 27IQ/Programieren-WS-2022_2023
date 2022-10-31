@@ -35,22 +35,13 @@ public class Matrix {
 	public boolean isEqualTo(Matrix m) {
 		boolean isEqual=true;
 
-		System.out.println(values.length);
-		System.out.println(m.values.length);
-		System.out.println(values[0].length);
-		System.out.println(m.values[0].length);
-
-		if(values.length!=m.values.length){
-			System.out.println("foof");
-			if(values[0].length!=m.values[0].length){
-				isEqual=false;
-			}
-			
+		if(values.length!=m.values.length||values[0].length!=m.values[0].length){
+			isEqual=false;
 		}else{
 			for(int i=0;i<values.length;i++){
 				for(int a=0;a<values[0].length;a++){
 					if(values[i][a]!=m.values[i][a]){
-						//isEqual=false;
+						isEqual=false;
 					}				
 				}
 			}	
@@ -190,7 +181,6 @@ public class Matrix {
 		// [6, -1, 0, 0]
 		o.print();
 
-		System.out.println(new Matrix(new int[2][2]).isEqualTo(new Matrix(new int[2][3]))); 
-		//System.out.println(o.isEqualTo(new Matrix(new int[4][5]))); 
+		//System.out.println(new Matrix(new int[2][2]).isEqualTo(new Matrix(new int[2][3]))); 
 	}
 }
