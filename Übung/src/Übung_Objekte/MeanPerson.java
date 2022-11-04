@@ -48,9 +48,9 @@ public class MeanPerson {
 
 	// Aufgabe 8
 	public void buyNewCar(Car newCar) {
-		if(money+ownedCar.getValue()<newCar.getValue()){
-			money+=ownedCar.getValue()-newCar.getValue();
-			ownedCar=newCar;
+		if(money+ownedCar.getValue()>newCar.getValue()){
+			this.money+=ownedCar.getValue()-newCar.getValue();
+			setOwnedCar(newCar);
 		}
 	}
 
@@ -100,6 +100,7 @@ public class MeanPerson {
 		MeanPerson	friend	= new MeanPerson();
 		Car			car1	= new Car();
 		Car			car2	= new Car();*/
+
 	}
 
 }
