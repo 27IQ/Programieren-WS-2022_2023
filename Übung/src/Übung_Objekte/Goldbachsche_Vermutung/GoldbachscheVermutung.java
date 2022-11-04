@@ -1,3 +1,4 @@
+package Goldbachsche_Vermutung;
 public class GoldbachscheVermutung {
 	/*
 	 * Die main-Methode. Wie immer kannst du hier eigene Testfaelle schreiben,

@@ -1,3 +1,4 @@
+package Vectorberechnung;
 public class Vector {
 	private int x;	//X-Koordinate des Vektors
 	private int y;	//Y-Koordinate des Vektors

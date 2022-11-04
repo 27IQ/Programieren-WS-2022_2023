@@ -1,3 +1,4 @@
+package Kino;
 /*
  * Diese Klasse stellt ein Kino dar.
  * Ein Kino besteht aus einem rechteckigen Saal, der durch das boolean Array symbolisiert wird.

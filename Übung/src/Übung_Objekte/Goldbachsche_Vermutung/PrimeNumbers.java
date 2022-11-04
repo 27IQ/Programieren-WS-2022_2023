@@ -1,3 +1,4 @@
+package Goldbachsche_Vermutung;
 import java.util.Arrays;
 
 public class PrimeNumbers

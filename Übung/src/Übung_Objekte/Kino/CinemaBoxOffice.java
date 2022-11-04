@@ -1,3 +1,4 @@
+package Kino;
 public class CinemaBoxOffice {
 	//Das Kino, welches diese Klasse verwalten soll.
 	private Cinema cinema;

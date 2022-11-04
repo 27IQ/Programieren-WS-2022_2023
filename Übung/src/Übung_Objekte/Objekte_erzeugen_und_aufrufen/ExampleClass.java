@@ -1,3 +1,4 @@
+package Objekte_erzeugen_und_aufrufen;
 /*
  * Diese Klasse dient nur als Referenz und darf nicht veraendert werden
  */

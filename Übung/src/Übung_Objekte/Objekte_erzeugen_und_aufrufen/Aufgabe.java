@@ -1,3 +1,4 @@
+package Objekte_erzeugen_und_aufrufen;
 public class Aufgabe {
 	// Aufgabe 1
 	public Object getAnyObject() {
