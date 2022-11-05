@@ -37,7 +37,7 @@ public class ListsMedium {
 	System.out.println("");
 	
 	Element element42 = new Element(42 , "Peter");
-	list.addElement(element42,10);
+	list.addElement(element42,1);
 	
 	System.out.println("---------- Einfuegen im Index ----------");
 	System.out.println(String.format("Die Liste hat nun %d Elemente:", list.getSize()));
