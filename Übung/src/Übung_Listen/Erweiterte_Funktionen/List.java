@@ -5,8 +5,9 @@ public class List {
 	// Aufgabe 1
 	public void addElement(Element newElement, int position) {
 		if(head!=null){
-			if(position>1&&position<=getSize()){
+			if(position>1&&position<=getSize()+1){
 				Element current=head;
+
 				for(int i=1;i<position-1;i++){
 					current=current.getNext();
 				}
@@ -18,31 +19,31 @@ public class List {
 					current.setNext(newElement);
 				}
 
-			}else if(position<=getSize()){
+			}else if(position==1&&position<=getSize()+1){
 				newElement.setNext(head);
 				head=newElement;
 			}
 		}else{
-			if(position==1){
-				head=newElement;
-			}
+			head=newElement;
 		}
 	}
 
 	// Aufgabe 2
 	public int getPosition(Element wanted) {
-		int currentPos=1;
-		Element current=head;
-
-		while(current!=wanted){
-			current=current.getNext();
+		int currentPos=0;
+		if(head!=null){
 			currentPos++;
-			if(current==null&&current!=wanted){
-				currentPos=0;
-				break;
+			Element current=head;
+
+			while(current!=wanted){
+				current=current.getNext();
+				currentPos++;
+				if(current.getNext()==null&&current!=wanted){
+					currentPos=0;
+					break;
+				}
 			}
 		}
-
 		return currentPos;
 	}
 
@@ -64,13 +65,13 @@ public class List {
 	public void deleteElement() {
 
 		if(head!=null){
-			Element current=head;
-			for(int i=1;i<getSize()-1;i++){
-				current=current.getNext();
-			}
 			if(head.getNext()==null){
 				head=null;
 			}else{
+				Element current=head;
+				for(int i=1;i<getSize()-1;i++){
+					current=current.getNext();
+				}
 				current.setNext(null);
 			}
 		}
