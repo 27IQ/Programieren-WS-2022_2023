@@ -66,17 +66,6 @@ public class ListsMedium {
 	System.out.println(String.format("Die Liste hat nun %d Elemente:", list.getSize()));
 	System.out.println(list.toString());
 
-	System.out.println(list.getPosition(element1));
-	System.out.println(list.getPosition(element2));
-	System.out.println(list.getPosition(element3));
-	System.out.println(list.getPosition(element4));
-	System.out.println(list.getPosition(element5));
-	System.out.println(list.getPosition(element6));
-	System.out.println(list.getPosition(element7));
-	System.out.println(list.getPosition(element8));
-	System.out.println(list.getPosition(element9));
-	System.out.println(list.getPosition(element10));
-	System.out.println(list.getPosition(element42));
 	list.addElement(element11, 1);
 	System.out.println(list.toString());
 	System.out.println(list.getPosition(element11));
@@ -91,6 +80,7 @@ public class ListsMedium {
 	System.out.println(list.getPosition(element9));
 	System.out.println(list.getPosition(element10));
 	System.out.println(list.getPosition(element42));
+	System.out.println("size "+list.getSize());
 	
 	}
 	
