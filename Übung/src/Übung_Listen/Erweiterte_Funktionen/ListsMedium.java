@@ -19,17 +19,18 @@ public class ListsMedium {
 	Element element8 = new Element(29 , "Isabelle");
 	Element element9 = new Element(32 , "Valentin");
 	Element element10 = new Element(23 , "Sabine");
+	Element element11 = new Element(23 , "foof");
 	
-	list.addElement(element1);
-	list.addElement(element2);
-	list.addElement(element3);
-	list.addElement(element4);
-	list.addElement(element5);
-	list.addElement(element6);
-	list.addElement(element7);
-	list.addElement(element8);
-	list.addElement(element9);
-	list.addElement(element10);
+	list.addElement(element1,1);
+	list.addElement(element2,2);
+	list.addElement(element3,3);
+	list.addElement(element4,4);
+	list.addElement(element5,5);
+	list.addElement(element6,6);
+	list.addElement(element7,7);
+	list.addElement(element8,8);
+	list.addElement(element9,9);
+	list.addElement(element10,10);
 	
 	System.out.println("---------- Einfuegen der Elemente in die Liste ----------");
 	System.out.println(String.format("Die Liste hat nun %d Elemente:", list.getSize()));
@@ -65,11 +66,31 @@ public class ListsMedium {
 	System.out.println(String.format("Die Liste hat nun %d Elemente:", list.getSize()));
 	System.out.println(list.toString());
 
+<<<<<<< HEAD
 
 	System.out.println(list.getName(1)); 
 	System.out.println(list.getPosition(element1));
 
 	System.out.println(list.getName(10)); 
 	System.out.println(list.getPosition(element10));
+=======
+	list.addElement(element11, 1);
+	System.out.println(list.toString());
+	System.out.println(list.getPosition(element11));
+	System.out.println(list.getPosition(element1));
+	System.out.println(list.getPosition(element2));
+	System.out.println(list.getPosition(element3));
+	System.out.println(list.getPosition(element4));
+	System.out.println(list.getPosition(element5));
+	System.out.println(list.getPosition(element6));
+	System.out.println(list.getPosition(element7));
+	System.out.println(list.getPosition(element8));
+	System.out.println(list.getPosition(element9));
+	System.out.println(list.getPosition(element10));
+	System.out.println(list.getPosition(element42));
+	System.out.println("size "+list.getSize());
+	
+>>>>>>> 96ffac978d0244e7b351b8712a618439e6fc0d6b
 	}
+	
 }
