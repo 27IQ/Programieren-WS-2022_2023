@@ -4,22 +4,73 @@ public class List {
 
 	// Aufgabe 1
 	public void addElement(Element newElement, int position) {
+		if(head!=null){
+			if(position>1&&position<=getSize()){
+				Element current=head;
+				for(int i=1;i<position-1;i++){
+					current=current.getNext();
+				}
 
+				if(current.getNext()!=null){
+					newElement.setNext(current.getNext());
+					current.setNext(newElement);
+				}else{
+					current.setNext(newElement);
+				}
+
+			}else{
+				if(position==1){
+					head=newElement;
+				}
+			}
+		}
 	}
 
 	// Aufgabe 2
 	public int getPosition(Element wanted) {
-		return 0;
+		int currentPos=1;
+		Element current=head;
+
+		while(current!=wanted){
+			current=current.getNext();
+			currentPos++;
+			if(current==null){
+				currentPos=0;
+				break;
+			}
+		}
+
+		return currentPos;
 	}
 
 	// Aufgabe 3
 	public String getName(int position) {
+		Element current=head;
+
+		if(position<=getSize()){
+			for(int i=1;i<position;i++){
+				current=current.getNext();
+			}
+			return current.getName();
+		}
+
 		return null;
 	}
 
 	// Aufgabe 4
 	public void deleteElement() {
 
+		if(head!=null){
+			Element current=head;
+			for(int i=1;i<getSize()-1;i++){
+				current=current.getNext();
+			}
+			if(head.getNext()==null){
+				head=null;
+			}else{
+				current.setNext(null);
+			}
+		}
 	}
 
 	// ------------- HILFSMETHODEN ---------------
@@ -28,15 +79,18 @@ public class List {
 	public int getSize() {
 		int count = 0;
 		Element pointer = head;
+
 		while (pointer != null) {
 			count++;
 			pointer = pointer.getNext();
 		}
+
 		return count;
 	}
 
 	// Methode zum Einfuegen eines neuen Elementes am Ende der Liste.
 	public void addElement(Element newElement) {
+		
 		if (head == null) {
 			head = newElement;
 		} else {

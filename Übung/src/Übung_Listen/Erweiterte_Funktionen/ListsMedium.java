@@ -37,7 +37,7 @@ public class ListsMedium {
 	System.out.println("");
 	
 	Element element42 = new Element(42 , "Peter");
-	list.addElement(element42,10);
+	list.addElement(element42,11);
 	
 	System.out.println("---------- Einfuegen im Index ----------");
 	System.out.println(String.format("Die Liste hat nun %d Elemente:", list.getSize()));
@@ -64,5 +64,12 @@ public class ListsMedium {
 	System.out.println("---------- Loeschen des letzten Elementes ----------");
 	System.out.println(String.format("Die Liste hat nun %d Elemente:", list.getSize()));
 	System.out.println(list.toString());
+
+
+	System.out.println(list.getName(1)); 
+	System.out.println(list.getPosition(element1));
+
+	System.out.println(list.getName(10)); 
+	System.out.println(list.getPosition(element10));
 	}
 }
