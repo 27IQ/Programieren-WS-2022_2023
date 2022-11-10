@@ -15,6 +15,7 @@ public class Train {
         }else {
             lastCoach.setNext(c);
             lastCoach = c;
+            lastCoach.setNext(null);
             }
         }
 
@@ -77,26 +78,7 @@ public class Train {
     }
 
     public void coupleCoach(Coach coach,int position){
-        if(size()+1>=position){
-
-            if(firstCoach==null){
-                firstCoach=coach;
-                return;
-            }
-
-            Coach current =firstCoach;
-            
-            for (int i = 0; i < position; i++) {
-                current=current.getNext();
-            }
-
-            coach.setNext(current.getNext());
-            current.setNext(coach);
-
-            if(position==size()+1){
-                lastCoach=coach;
-            }
-        }
+        
     }
 
     public void uncoupleCoach(Coach coach){
@@ -105,6 +87,10 @@ public class Train {
 
             while(current!=coach&&current.getNext()!=coach&&current.getNext()!=null){
                 current=current.getNext();
+            }
+
+            if(current==firstCoach){
+                firstCoach=current.getNext();
             }
 
             if(current.getNext()==coach){
@@ -117,9 +103,7 @@ public class Train {
                }
             }
 
-            if(current==firstCoach){
-                firstCoach=current.getNext();
-            }
+            
 
         }
 
@@ -147,11 +131,14 @@ public class Train {
         Train t=new Train();
         Coach z1=new Coach(30),z2=new Coach(10),z3=new Coach(40),z4=new Coach(50),z5=new Coach(45);
 
+
+        t.append(z3);
+        
+        t.append(z5);
         t.append(z1);
         t.append(z2);
-        t.append(z3);
         t.append(z4);
-        t.append(z5);
+        
 
         System.out.println(t.toString()); 
         int[] i={20,40,05};
@@ -164,8 +151,29 @@ public class Train {
         System.out.println(t.checkAvailability(c)+" should be true"); 
         int[] d={20,40,10,0,5};
         System.out.println(t.checkAvailability(d)+" should be true"); 
-        t.uncoupleCoach(z4);
+
+        System.out.println(t.toString());
+        t.uncoupleCoach(z1);
         System.out.println(t.toString()); 
+        t.coupleCoach(z1, 1);
+        System.out.println(t.toString());
+        t.uncoupleCoach(z2);
+        System.out.println(t.toString()); 
+        t.coupleCoach(z2, 2);
+        System.out.println(t.toString());
+        t.uncoupleCoach(z3);
+        System.out.println(t.toString()); 
+        t.coupleCoach(z3, 3);
+        System.out.println(t.toString());
+        t.uncoupleCoach(z4);
+        System.out.println(t.toString());
+        t.coupleCoach(z4, 4);
+        System.out.println(t.toString()); 
+        t.uncoupleCoach(z5);
+        System.out.println(t.toString());
+        t.coupleCoach(z5, 5);
+        System.out.println(t.toString()); 
+        
 
 
 
