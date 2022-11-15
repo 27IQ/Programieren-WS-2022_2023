@@ -38,7 +38,7 @@ public class ListsMedium {
 	System.out.println("");
 	
 	Element element42 = new Element(42 , "Peter");
-	list.addElement(element42,10);
+	list.addElement(element42,11);
 	
 	System.out.println("---------- Einfuegen im Index ----------");
 	System.out.println(String.format("Die Liste hat nun %d Elemente:", list.getSize()));
@@ -66,6 +66,14 @@ public class ListsMedium {
 	System.out.println(String.format("Die Liste hat nun %d Elemente:", list.getSize()));
 	System.out.println(list.toString());
 
+<<<<<<< HEAD
+
+	System.out.println(list.getName(1)); 
+	System.out.println(list.getPosition(element1));
+
+	System.out.println(list.getName(10)); 
+	System.out.println(list.getPosition(element10));
+=======
 	list.addElement(element11, 1);
 	System.out.println(list.toString());
 	System.out.println(list.getPosition(element11));
@@ -82,6 +90,7 @@ public class ListsMedium {
 	System.out.println(list.getPosition(element42));
 	System.out.println("size "+list.getSize());
 	
+>>>>>>> 96ffac978d0244e7b351b8712a618439e6fc0d6b
 	}
 	
 }
