@@ -7,7 +7,6 @@ public class Studiengang {
 
     Studiengang(String name){
         this.name=name;
-        this.Regelstudienzeit=Regelstudienzeit;
     }
 
     public String getName() {
