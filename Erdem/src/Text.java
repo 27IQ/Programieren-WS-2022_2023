@@ -11,11 +11,8 @@ public class Text {
 
         String zahl=Integer.toString(z);
 
-        String tmp="";
-        if(tmp=="");    //vscode unassinged fehler unterdrückung
-
         for(int i=0;i<zahl.length();i++){
-            finalString+=zahlen[Integer.parseInt(tmp=""+zahl.charAt(i))];
+            finalString+=zahlen[Integer.parseInt(""+zahl.charAt(i))];
             if(i<zahl.length()-1){
                 finalString+="-";
             }
