@@ -7,6 +7,15 @@ public class chars {
         int newCharPosition = (charPosition + 3)% 26;   //Caeser 3 Verschiebungen 
         System.out.println(newCharPosition);
 
+
+        int[][] a=new int[5][3];
+        
+        for (int[] is : a) {
+            for (int is2: is) {
+                
+            }
+        }
+
         //System.out.println(3%26);
         //System.out.println(27%26);
     }
