@@ -174,32 +174,32 @@ public class Pratium_1_Aufgabe {
 
         System.out.println("\n------ 7 - Erhöhen der Inhalte eines Feldes ------");
         int[] element13={80,7,1,56,11,72,43,37};
-        System.out.println("should be 97,24,18,73,28,89,60,54 ---> "+toString(increaseArray(element13, 17)));
+        System.out.println("should be 97,24,18,73,28,89,60,54 ---> "+toStringsui(increaseArray(element13, 17)));
 
         System.out.println("\n------ 8 - Bedingtes Verdoppeln der Inhalte eines Feldes ------");
         int[] element11={1,-7,1,5,-1,2,4};
-        System.out.println("should be 1,-14,2,10,-2,4,8 ---> "+toString(doubleIfContainsPositive(element11)));
+        System.out.println("should be 1,-14,2,10,-2,4,8 ---> "+toStringsui(doubleIfContainsPositive(element11)));
         int[] element12={-1,-7,-1,-5,-1,-2,-4};
-        System.out.println("should be -1,-7,-1,-5,-1,-2,-4 ---> "+toString(doubleIfContainsPositive(element12)));
+        System.out.println("should be -1,-7,-1,-5,-1,-2,-4 ---> "+toStringsui(doubleIfContainsPositive(element12)));
         
         System.out.println("\n------ 9 - Erzeugen eines Textes ------");
         int[] element10={80,7,1,56,11,72,43,37};
-        System.out.println("should be 80,7,1,56,11,72,43,37 ---> "+toString(element10));
+        System.out.println("should be 80,7,1,56,11,72,43,37 ---> "+toStringsui(element10));
 
         System.out.println("\n------ 10 - Erzeugen eines Feldes mit drei Elementen ------");
-        System.out.println("should be 80,7,1 ---> "+toString(copyStartingValues(element10)));
+        System.out.println("should be 80,7,1 ---> "+toStringsui(copyStartingValues(element10)));
 
         System.out.println("\n------ 11 - Erzeugen eines Feldes mit ausgesuchten Inhalten ------");
         int[] element={80,-7,1,56,-11,-72,0,37};
-        System.out.println("should be -7,-11,-72 ---> "+toString(selectNegatives(element)));
+        System.out.println("should be -7,-11,-72 ---> "+toStringsui(selectNegatives(element)));
 
         System.out.println("\n------ 12 - Erzeugen eines Feldes mit invertiertem Inhalt ------");
         int[] element2={80,-7,1,56,-11,-72,0,37};
-        System.out.println("should be 37,0,-72,-11,56,1,-7,80 ---> "+toString(copyAndInvert(element2)));
+        System.out.println("should be 37,0,-72,-11,56,1,-7,80 ---> "+toStringsui(copyAndInvert(element2)));
 
         System.out.println("\n------ 13 - Zusammenführen von Feldern ------");
         int[] element3={80,-7,1,56},element4={-11,-72,0,37};
-        System.out.println("should be 80,-7,1,56,-11,-72,0,37 ---> "+toString(addArrays(element3, element4)));
+        System.out.println("should be 80,-7,1,56,-11,-72,0,37 ---> "+toStringsui(addArrays(element3, element4)));
 
         System.out.println("\n------ 14 - Zählen von Folgen ------");
         int[] element5={80,7,1,0,11,72,0,0,37,61};
@@ -216,6 +216,17 @@ public class Pratium_1_Aufgabe {
         System.out.println("should be false ---> "+twoTimes(element9));
 
 
+    }
+
+
+    public static String toStringsui(int[] zahlen){
+        String array="";
+        for (int i = 0; i < zahlen.length; i++) {
+            array+=zahlen[i];
+            if(i < zahlen.length-1)
+            array+=",";
+        }
+        return array;
     }
 
     
