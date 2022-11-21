@@ -178,7 +178,7 @@ public class Pratium_1_Aufgabe {
 
         System.out.println("\n------ 8 - Bedingtes Verdoppeln der Inhalte eines Feldes ------");
         int[] element11={1,-7,1,5,-1,2,4};
-        System.out.println("should be 1,-14,2,10,-2,4,8 ---> "+toStringsui(doubleIfContainsPositive(element11)));
+        System.out.println("should be 2,-14,2,10,-2,4,8 ---> "+toStringsui(doubleIfContainsPositive(element11)));
         int[] element12={-1,-7,-1,-5,-1,-2,-4};
         System.out.println("should be -1,-7,-1,-5,-1,-2,-4 ---> "+toStringsui(doubleIfContainsPositive(element12)));
         
