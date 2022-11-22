@@ -26,10 +26,9 @@ public class RekursionBasics {
 	private static int rekursSummenFormel2(int n) {
 		
 		if(n!=0){
-			n=(n*2)+rekursSummenFormel(n-1);
+			n=(n*2)+rekursSummenFormel2(n-1);
 		}
 		return n;
-		// Hier endet der zu bearbeitende Bereich.
 	}
 	
 	
@@ -40,10 +39,12 @@ public class RekursionBasics {
 	}
 	
 	private static long rekursFakultaet(int n) {
-		// Hier beginnt der zu bearbeitende Bereich.
+		if(n==0)
+		return 1;
 
-		return -1;
-		// Hier endet der zu bearbeitende Bereich.
+		n*=rekursFakultaet(n-1);
+
+		return n;
 	}
 	
 	
@@ -54,10 +55,11 @@ public class RekursionBasics {
 	}
 	
 	private static int rekursPotenz(int b, int e) {
-		// Hier beginnt der zu bearbeitende Bereich.
+		if(e==0)
+		return 1;
 
-		return -1;
-		// Hier endet der zu bearbeitende Bereich.
+		return b*rekursPotenz(b, e-1);
+		
 	}
 	
 	
@@ -90,5 +92,6 @@ public class RekursionBasics {
 		System.out.println("\n---------- Aufgabe 4 ----------");
 		System.out.println("2^6 = " + potenz(2,6) + " (erwartet: 64)");
 		System.out.println("6^2 = " + potenz(6,2) + " (erwartet: 36)");
+
 	}
 }
