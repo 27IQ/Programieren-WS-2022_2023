@@ -3,7 +3,6 @@ package Liste_mit_Strings;
 public class StringList {
 	// Das erste Element der Liste
 	private StringListElement first;
-	private int size=0;
 
 	/*
 	 * BEGINN des zu bearbeitenden Codes
@@ -11,105 +10,94 @@ public class StringList {
 
 	// Aufgabe 1
 	public void append(String string) {
-		StringListElement e=new StringListElement();
-		e.setString(string);
+		StringListElement element=new StringListElement(),current=first;
+		element.setString(string);
 
-		if(first!=null){
-			StringListElement current=first;
-
-			while(current.getNext()!=null){
-				current=current.getNext();
-			}
-		
-			current.setNext(e);
-			e.setPrev(current);
-
-		}else{
-			first=e;
+		if(first==null){
+			first=element;
+			return;
 		}
-		size++;
+
+		while(current.getNext()!=null){
+			current=current.getNext();
+		}
+
+		current.setNext(element);
+		element.setPrev(current);
 	}
 
 	// Aufgabe 2
 	public void insert(String string, int index) {
-		StringListElement current=first,e=new StringListElement();
-		e.setString(string);
+		StringListElement element=new StringListElement(),current=first;
+		element.setString(string);
 
-		if(0<index&&index<=size){
-			for(int i=1;i<index;i++){
-				current=current.getNext();
-			}
-
-			if(current.getNext()!=null){
-				e.setNext(current.getNext());
-				e.setPrev(current);
-				e.getNext().setPrev(e);
-				current.setNext(e);
-			}else{
-				e.setPrev(current);
-				current.setNext(e);
-			}
-
-			size++;
-			
-		}else if(0==index){
-			e.setNext(first);
-			if(first!=null){
-				first.setPrev(e);
-				first=e;
-			}else{
-				first=e;
-			}
-			size++;
+		if(first==null){
+			first=element;
+			return;
 		}
+
+		if(index==0){
+			element.setNext(first);
+			first.setPrev(element);
+			first=element;
+			return;
+		}
+
+		for (int i = 1; i < index; i++) {
+			current=current.getNext();
+		}
+
+
+		element.setNext(current.getNext());
+		if(current.getNext()!=null)
+		current.getNext().setPrev(element);
+
+		current.setNext(element);
+		element.setPrev(current);
 	}
 
 	// Aufgabe 3
 	public String get(int index) {
-		if(-1<index&&index<=size){
-			StringListElement current=first;
+		StringListElement current=first;
 
-			for(int i=1;i<=index;i++){
-				current=current.getNext();
-			}
-			return current.getString();
+		for (int i = 1; i <= index; i++) {
+			current=current.getNext();
 		}
-		return "";
+
+		return current.getString();
 	}
 
 	// Aufgabe 4
 	public void remove(int index) {
-		if(first!=null&&first.getNext()!=null){
-			StringListElement current=first;
-			if(index>1){
-				for(int i=1;i<index;i++){
-					current=current.getNext();
-				}
+		StringListElement current=first;
 
-				current.getNext().setPrev(current.getPrev());
-				current.getPrev().setNext(current.getNext());
-				
-			}else if(index==0){
-				first.getNext().setPrev(null);
-				first=first.getNext();
-			}else if(index==1){
-				current=current.getNext();
-				current.getNext().setPrev(current.getPrev());
-				current.getPrev().setNext(current.getNext());
-			}
+		if(first==null)
+		return;
 
-
-		}else if(first!=null){
+		if(first.getNext()==null){
 			first=null;
-			size=1;
+			return;
 		}
-		
-		if(first!=null){
-			
-		}else{
-			size=1;
+
+		if(index==0){
+			first.setPrev(null);
+			first=first.getNext();
+			first.setPrev(null);
+			return;
 		}
-		size--;
+
+		for (int i = 1; i < index; i++) {
+			current=current.getNext();
+		}
+
+		if(current.getNext().getNext()==null){
+			current.getNext().setPrev(null);
+			current.setNext(null);
+			return;
+		}
+
+		current.getNext().getNext().setPrev(current);
+		current.setNext(current.getNext().getNext());
 	}
 
 	/*
@@ -121,49 +109,53 @@ public class StringList {
 		liste.append("Hallo");
 		liste.append("Welt");
 		liste.append("!");
-		System.out.println("first --> \"Hallo\" <--> \"Welt\" <--> \"!\" --> null");
+		System.out.println("Erwartete Ausgabe: first --> \"Hallo\" <--> \"Welt\" <--> \"!\" --> null");
 		System.out.println(liste);
 		liste.remove(0);
 		liste.remove(0);
 		liste.remove(0);
-		System.out.println("first --> null");
+		System.out.println("Erwartete Ausgabe: first --> null");
 		System.out.println(liste);
 		liste.append("ist");
+		//System.out.println(liste);
 		liste.append("!");
+		//System.out.println(liste);
 		liste.insert("Dieser", 0);
+		//System.out.println(liste);
 		liste.insert("falsch", 2);
+		//System.out.println(liste);
 		liste.insert("Satz", 1);
 		System.out.println(
-				"first --> \"Dieser\" <--> \"Satz\" <--> \"ist\" <--> \"falsch\" <--> \"!\" --> null");
+				"Erwartete Ausgabe: first --> \"Dieser\" <--> \"Satz\" <--> \"ist\" <--> \"falsch\" <--> \"!\" --> null");
 		System.out.println(liste);
 		liste = new StringList();
 		liste.insert("Test1", 0);
 		liste.insert("Test2", 1);
-		System.out.println("first --> \"Test1\" <--> \"Test2\" --> null");
+		System.out.println("Erwartete Ausgabe: first --> \"Test1\" <--> \"Test2\" --> null");
 		System.out.println(liste);
 		liste.append("Test3");
 		liste.append("Test4");
 		liste.append("Test5");
 		liste.append("Test6");
 		System.out.println(
-				"first --> \"Test1\" <--> \"Test2\" <--> \"Test3\" <--> \"Test4\" <--> \"Test5\" <--> \"Test6\" --> null");
+				"Erwartete Ausgabe: first --> \"Test1\" <--> \"Test2\" <--> \"Test3\" <--> \"Test4\" <--> \"Test5\" <--> \"Test6\" --> null");
 		System.out.println(liste);
 		liste.remove(0);
 		System.out.println(
-				"first --> \"Test2\" <--> \"Test3\" <--> \"Test4\" <--> \"Test5\" <--> \"Test6\" --> null");
+				"Erwartete Ausgabe: first --> \"Test2\" <--> \"Test3\" <--> \"Test4\" <--> \"Test5\" <--> \"Test6\" --> null");
 		System.out.println(liste);
 		liste.remove(4);
 		System.out.println(
-				"first --> \"Test2\" <--> \"Test3\" <--> \"Test4\" <--> \"Test5\" --> null");
+				"Erwartete Ausgabe: first --> \"Test2\" <--> \"Test3\" <--> \"Test4\" <--> \"Test5\" --> null");
 		System.out.println(liste);
 		liste.remove(1);
-		System.out.println("first --> \"Test2\" <--> \"Test4\" <--> \"Test5\" --> null");
+		System.out.println("Erwartete Ausgabe: first --> \"Test2\" <--> \"Test4\" <--> \"Test5\" --> null");
 		System.out.println(liste);
-		System.out.println("Test2");
+		System.out.println("Erwartete Ausgabe: Test2");
 		System.out.println(liste.get(0));
-		System.out.println("Test4");
+		System.out.println("Erwartete Ausgabe: Test4");
 		System.out.println(liste.get(1));
-		System.out.println("Test5");
+		System.out.println("Erwartete Ausgabe: Test5");
 		System.out.println(liste.get(2));
 	}
 

@@ -11,96 +11,95 @@ public class IntList {
 
 	// Aufgabe 1
 	public void append(int number) {
-		IntListElement i=new IntListElement(),current;
-		i.setNumber(number);
-		
-		if(first!=null&&first.getNext()!=null){
-			current=first;
-			
-			while(current.getNumber()<current.getNext().getNumber()){
-				current=current.getNext();
+		IntListElement element=new IntListElement(),current=first;
+		element.setNumber(number);
 
-				if(current.getNext()==null){
-					current.setNext(i);
-					break;
-
-				}else if(current.getNumber()<current.getNext().getNumber()){
-					i.setNext(current.getNext());
-					current.setNext(i);
-				}
-			}
-
-		}else if(first!=null){
-			first.setNext(new IntListElement());
-			first.getNext().setNumber(number);
-
-		}else if(first==null){
-			first=i;
+		if(first==null){
+			first=element;
+			return;
 		}
+
+		if(element.getNumber()<first.getNumber()){
+			element.setNext(first);
+			first=element;
+			return;
+		}
+
+		int counter=1;
+		while(element.getNumber()>current.getNumber()){
+			current=current.getNext();
+			counter++;
+
+			if(current==null)
+			break;
+		}
+
+		current=first;
+		for (int i = 1; i < counter-1; i++) {
+			current=current.getNext();
+		}
+
+		element.setNext(current.getNext());
+		current.setNext(element);
 	}
 
 	// Aufgabe 2
 	public int size() {
+		if(first==null)
+		return 0;
+
+		if(first.getNext()==null)
+		return 1;
+
+		IntListElement current=first;
 		int counter=0;
-		if(first!=null&&first.getNext()!=null){
+		while(current!=null){
+			current=current.getNext();
 			counter++;
-			IntListElement current=first;
-			while(current.getNext()!=null){
-				current=current.getNext();
-				counter++;
-			}
-		}else if(first!=null){
-			return 1;
 		}
-		
 		return counter;
 	}
 
 	// Aufgabe 3
 	public int get(int index) {
-		if(-1<index&&index<size()-1){
-			IntListElement current=first;
-			for (int i = 0; i < index; i++) {
-				current=current.getNext();
-			}
-			return current.getNumber();
+		if(-1>index||index>size()){
+			return 0;
 		}
-		return 0;
+
+		IntListElement current=first;
+		for (int i = 0; i < index; i++) {
+			current=current.getNext();
+		}
+
+		return current.getNumber();
 	}
 
 
 	public IntListElement getElement(int index) {
-		if(-1<index&&index<size()){
-			IntListElement current=first;
-			for (int i = 1; i < index+1; i++) {
-				current=current.getNext();
-			}
-			return current;
-		}
-		return null;
+		return first;
 	}
 
 	// Aufgabe 4
 	public void reverse() {
-		int length=size();
-		IntListElement e=getElement(length-1);
-		getElement(length-2).setNext(null);
-		e.setNext(first);
-		first=e;
+		IntListElement[] map=new IntListElement[size()];
+		IntListElement current=first;
 
-		for (int i = 1; i < length; i++) {
-			e=getElement(length-1);
-			getElement(length-2).setNext(null);
-
-			IntListElement current=first;
-			for(int a=1;a<i;a++){
-				current=current.getNext();
-			}
-
-			e.setNext(current.getNext());
-			current.setNext(e);
+		for (int i = 0; i < map.length; i++) {
+			map[i]=current;
+			current=current.getNext();
 		}
+
+		first=map[map.length-1];
+		current=first;
+
+		for (int i = 0; i < map.length; i++) {
+			current.setNext(map[map.length-i-1]);
+			current=current.getNext();
+		}
+		current.setNext(null);
 	}
+
+	
 	
 
 	/*
@@ -114,7 +113,9 @@ public class IntList {
 		l.append(42);
 		l.append(-10);
 		l.append(30);
+		//l.append(60);
 		System.out.println("So sieht die Liste aus: " + l);
+		//System.out.println(l.size());
 		System.out.println("Das Element an Index 0: " + l.get(0));
 		System.out.println("Das Element an Index -10 (Gibt es nicht, sollte also 0 sein): " + l.get(-10));
 		System.out.println("Das Element an Index 100 (Gibt es nicht, sollte also 0 sein): " + l.get(100));
