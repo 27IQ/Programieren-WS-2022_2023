@@ -1,0 +1,8 @@
+{
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "c:\\Users\\jonas\\Downloads\\jturtle-0.1.1.jar",
+        "Erdem/lib/jturtle-0.1.1.jar"
+    ],
+    "java.dependency.packagePresentation": "hierarchical"
+}
