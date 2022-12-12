@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.concurrent.CountDownLatch;
 
 public class PhoneBook {
 	
@@ -24,40 +25,92 @@ public class PhoneBook {
 	
 	// Rueckgabetyp und Parametrisierung dieser Methode duerfen geaendert werden!
 	private void insertPerson(Person newPerson, Person currentNode){
-		
+		if(compareTwoPersons(newPerson, currentNode)<0){
+			if(currentNode.getLeftSuccessor()!=null){
+				insertPerson(newPerson, currentNode.getLeftSuccessor());
+				return;
+			}
+
+			currentNode.setLeftSuccessor(newPerson);
+			return;
+			
+		}
+
+		if(compareTwoPersons(newPerson, currentNode)>0){
+			if(currentNode.getRightSuccessor()){
+				insertPerson(newPerson, currentNode.getRightSuccessor());
+				return;
+			}
+
+			currentNode.setRightSuccessor(newPerson);
+			return;
+		}
 	}
-	
+
 	// Aufgabe 2
 	// Die Methodensignatur darf NICHT geaendert werden
 	public boolean findPerson(String lastName, String firstName, int number){
-		return false;
+		return findPerson(lastName, firstName, number);
 	}
 	
 	// Rueckgabetyp und Parametrisierung dieser Methode duerfen geaendert werden! 
 	private boolean findPerson(String lastName, String firstName, int number, Person currentNode){
-		return false;
+		if(compareTwoPersons(lastName, firstName, number, currentNode)==0)
+		return true;
+
+		if(currentNode.getLeftSuccessor()!=null)
+		findPerson(lastName, firstName, number, currentNode);
+
+		if(currentNode.getRigthSuccessor()!=null)
+		findPerson(lastName, firstName, number, currentNode);
 	}
 	
 	// Aufgabe 3
 	// Die Methodensignatur darf NICHT geaendert werden
 	public int countAllPersons() {
-		return 0;
+		return countAllPersons();
 	}
 	
 	// Rueckgabetyp und Parametrisierung dieser Methode duerfen geaendert werden!
 	public int countAllPersons(Person currentNode) {
-		return 0;
+		int counter=0;
+
+		if(currentNode.getLeftSuccessor()!=null)
+		counter+=findPerson(lastName, firstName, number, currentNode);
+
+		if(currentNode.getRigthSuccessor()!=null)
+		counter+=findPerson(lastName, firstName, number, currentNode);
+
+		return 1;
 	}
 	
 	// Aufgabe 4
 	// Die Methodensignatur darf NICHT geaendert werden
 	public Person[] findAllPersonsByFirstName(String firstName){
-		return null;
+		return findAllPersonsByFirstName(firstName, root);
 	}
 	
 	// Rueckgabetyp und Parametrisierung dieser Methode duerfen geaendert werden!
 	private Person[] findAllPersonsByFirstName(String firstName, Person currentNode){
-		return null;
+		Person[] person1,person2,person3;
+
+		if(currentNode.getLeftSuccessor()!=null)
+		person1=findAllPersonsByFirstName(firstName,currentNode);
+
+		if(currentNode.getRigthSuccessor()!=null)
+		person2=findAllPersonsByFirstName(firstName,currentNode);
+
+		person3=new Person[person1.length+person2.length];
+
+		for (int i = 0; i < person1.length; i++) {
+			person3[i]=person1[i];
+		}
+
+		for (int i = person1.length-1; i < person3.length; i++) {
+			person3[i]=person2[i];
+		}
+
+		return person3;
 	}
 	
 	// Aufgabe 5
