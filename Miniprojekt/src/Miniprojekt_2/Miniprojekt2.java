@@ -99,10 +99,10 @@ public class Miniprojekt2 {
 		System.out.println(train2.toString());
 
 		System.out.println("Der zweite Waggon wird entfernt.");
-		System.out.println(train2.getWaggonAt(0).toString());
-		System.out.println(train2.getWaggonAt(1).toString());
-		System.out.println(train2.getWaggonAt(2).toString());
-		System.out.println(train2.getWaggonAt(3).toString());
+		//System.out.println(train2.getWaggonAt(0).toString());
+		//System.out.println(train2.getWaggonAt(1).toString());
+		//System.out.println(train2.getWaggonAt(2).toString());
+		//System.out.println(train2.getWaggonAt(3).toString());
 		final Waggon secondWaggon = train2.getWaggonAt(1);
 		train2.removeWaggon(secondWaggon);
 		System.out.println(train2.toString());

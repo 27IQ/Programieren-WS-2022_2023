@@ -37,7 +37,7 @@ public class PhoneBook {
 		}
 
 		if(compareTwoPersons(newPerson, currentNode)>0){
-			if(currentNode.getRightSuccessor()){
+			if(currentNode.getRightSuccessor()!=null){
 				insertPerson(newPerson, currentNode.getRightSuccessor());
 				return;
 			}
@@ -50,25 +50,29 @@ public class PhoneBook {
 	// Aufgabe 2
 	// Die Methodensignatur darf NICHT geaendert werden
 	public boolean findPerson(String lastName, String firstName, int number){
-		return findPerson(lastName, firstName, number);
+		return findPerson(lastName, firstName, number,root);
 	}
 	
 	// Rueckgabetyp und Parametrisierung dieser Methode duerfen geaendert werden! 
 	private boolean findPerson(String lastName, String firstName, int number, Person currentNode){
+		boolean found1=false,found2=false;
+
 		if(compareTwoPersons(lastName, firstName, number, currentNode)==0)
 		return true;
 
 		if(currentNode.getLeftSuccessor()!=null)
-		findPerson(lastName, firstName, number, currentNode);
+		found1=findPerson(lastName, firstName, number, currentNode.getLeftSuccessor());
 
-		if(currentNode.getRigthSuccessor()!=null)
-		findPerson(lastName, firstName, number, currentNode);
+		if(currentNode.getRightSuccessor()!=null)
+		found2=findPerson(lastName, firstName, number, currentNode.getRightSuccessor());
+
+		return found1||found2;
 	}
 	
 	// Aufgabe 3
 	// Die Methodensignatur darf NICHT geaendert werden
 	public int countAllPersons() {
-		return countAllPersons();
+		return countAllPersons(root);
 	}
 	
 	// Rueckgabetyp und Parametrisierung dieser Methode duerfen geaendert werden!
@@ -76,12 +80,12 @@ public class PhoneBook {
 		int counter=0;
 
 		if(currentNode.getLeftSuccessor()!=null)
-		counter+=findPerson(lastName, firstName, number, currentNode);
+		counter+=countAllPersons(currentNode.getLeftSuccessor());
 
-		if(currentNode.getRigthSuccessor()!=null)
-		counter+=findPerson(lastName, firstName, number, currentNode);
+		if(currentNode.getRightSuccessor()!=null)
+		counter+=countAllPersons(currentNode.getRightSuccessor());
 
-		return 1;
+		return counter+1;
 	}
 	
 	// Aufgabe 4
@@ -92,22 +96,30 @@ public class PhoneBook {
 	
 	// Rueckgabetyp und Parametrisierung dieser Methode duerfen geaendert werden!
 	private Person[] findAllPersonsByFirstName(String firstName, Person currentNode){
-		Person[] person1,person2,person3;
+		Person[] person1={},person2={},person3={};
 
 		if(currentNode.getLeftSuccessor()!=null)
-		person1=findAllPersonsByFirstName(firstName,currentNode);
+		person1=findAllPersonsByFirstName(firstName,currentNode.getLeftSuccessor());
 
-		if(currentNode.getRigthSuccessor()!=null)
-		person2=findAllPersonsByFirstName(firstName,currentNode);
+		if(currentNode.getRightSuccessor()!=null)
+		person2=findAllPersonsByFirstName(firstName,currentNode.getRightSuccessor());
 
-		person3=new Person[person1.length+person2.length];
+		int isPerson=0;
+
+		if(currentNode.getFirstName()==firstName)
+		isPerson++;
+
+		person3=new Person[person1.length+person2.length+isPerson];
 
 		for (int i = 0; i < person1.length; i++) {
 			person3[i]=person1[i];
 		}
 
-		for (int i = person1.length-1; i < person3.length; i++) {
-			person3[i]=person2[i];
+		if(isPerson==1)
+		person3[person1.length]=currentNode;
+
+		for (int i = person1.length+isPerson; i < person3.length; i++) {
+			person3[i]=person2[i-person1.length-isPerson];
 		}
 
 		return person3;
@@ -116,12 +128,19 @@ public class PhoneBook {
 	// Aufgabe 5
 	// Die Methodensignatur darf NICHT geaendert werden
 	public void marryTheHochzeits() {
-		
+		marryTheHochzeits(root);
 	}
 	
 	// Rueckgabetyp und Parametrisierung dieser Methode duerfen geaendert werden!
 	private void marryTheHochzeits(Person currentNode) {
-		
+		if(currentNode.getLastName()=="Hochzeit")
+		currentNode.setMarried(true);
+
+		if(currentNode.getLeftSuccessor()!=null)
+		marryTheHochzeits(currentNode.getLeftSuccessor());
+
+		if(currentNode.getRightSuccessor()!=null)
+		marryTheHochzeits(currentNode.getRightSuccessor());
 	}
 	
 	//Diese Methode vergleicht zwei Objekte vom Typ Person im Sinne der Sortierkriterien des Telefonbuchs. 
@@ -174,7 +193,7 @@ public class PhoneBook {
 	public static void main(String[] args) {
 		//Die folgenden Methoden testen einzeln die Zu bearbeitenden Aufgaben. Sie koennen diese einzeln
 		//aus- und einkommentieren, falls Sie erst Teile der Loesung programmiert haben.
-		testInsertPerson();
+		//testInsertPerson();
 		//testFindPerson();
 		//testCountPersons();
 		//testFindPersons();
