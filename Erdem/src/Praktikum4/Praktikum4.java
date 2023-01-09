@@ -163,14 +163,14 @@ public class Praktikum4 {
 
     public static void main(String[] args) {
         Praktikum4 p=new Praktikum4();
-        //p.maximumtest();
-        //p.lastpositive();
-        //p.firsstpositive();
-        //p.sortedtest();
-        //p.containstest();
-        //p.countpositivestest();
-        //p.isequaltest();
-        //p.palindromChecktest();
+        p.maximumtest();
+        p.lastpositive();
+        p.firsstpositive();
+        p.sortedtest();
+        p.containstest();
+        p.countpositivestest();
+        p.isequaltest();
+        p.palindromChecktest();
         p.getIndextest();
     }
 
