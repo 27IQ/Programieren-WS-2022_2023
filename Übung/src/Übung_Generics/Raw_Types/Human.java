@@ -1,3 +1,4 @@
+package Raw_Types;
 //---------------------------- Aufgabe 1 -------------------------
 public class Human <S,T> {
 	

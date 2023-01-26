@@ -1,3 +1,4 @@
+package Raw_Types;
 //---------------------------- Aufgabe 2 -------------------------
 public class ClassWithProblems{
 	
