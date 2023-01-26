@@ -58,24 +58,13 @@ public class Graph {
 			int i=-1;
 			do{
 				i++;
-				if(start.getOneWayStreets().get(i).getDistance()>distance)
+				if(start.getOneWayStreets().get(i).getTarget().getId()==target.getId())
 				distance=start.getOneWayStreets().get(i).getDistance();
 
 			}while(start.getOneWayStreets().get(i)!=start.getOneWayStreets().getLast());
 		}
 
-		if(!target.getOneWayStreets().isEmpty()){
-			int i=-1;
-			do{
-				i++;
-				if(target.getOneWayStreets().get(i).getDistance()>distance)
-				distance=target.getOneWayStreets().get(i).getDistance();
-
-			}while(target.getOneWayStreets().get(i)!=target.getOneWayStreets().getLast());
-		}
-
 		return distance;
-		
 	}
 
 	//Aufgabe 5
@@ -122,7 +111,7 @@ public class Graph {
 				if(crossroads.get(i).getOneWayStreets().isEmpty())
 				break;
 
-				if(crossroads.get(i).getOneWayStreets().get(i).getTarget()==target){
+				if(crossroads.get(i).getOneWayStreets().get(j).getTarget()==target){
 					removeOneWayStreet(crossroads.get(i).getId(), id);
 					j--;
 				}
