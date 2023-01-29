@@ -121,6 +121,15 @@ public class SmurfList {
 			current.getSmurf().setSize(current.getSmurf().getSize()-cm);
 			current=current.getNext();
 		}
+
+		current=head;
+		while(current.getNext()!=null){
+			if(current.getNext().getSmurf().getSize()<SMURF_MINIMAL_SIZE){
+				current.setNext(current.getNext().getNext());
+			}else{
+				current=current.getNext();
+			}
+		}
 	}
 	
 	// Aufgabe 6
@@ -128,32 +137,28 @@ public class SmurfList {
 		if(head==null)
 		return;
 
-		SmurfNode current=head;
+		while(head.getSmurf().getSize()+cm>SMURF_MAXIMAL_SIZE){
+			head=head.getNext();
 
+			if(head==null)
+			return;
+		}
+
+		SmurfNode current=head;
 		while(current!=null){
 			current.getSmurf().setSize(current.getSmurf().getSize()+cm);
 			current=current.getNext();
 		}
-		
-		current=head;
-		int counter=0;
-
-		while(current.getSmurf().getSize()<=SMURF_MAXIMAL_SIZE){
-			current=current.getNext();
-			counter++;
-
-			if(current==null)
-			return;
-
-		}
 
 		current=head;
-		for (int i = 1; i < counter-1; i++) {
-			current=current.getNext();
+		while(current.getNext()!=null){
+			if(current.getNext().getSmurf().getSize()>SMURF_MAXIMAL_SIZE){
+				current.setNext(current.getNext().getNext());
+			}else{
+				current=current.getNext();
+			}
+			
 		}
-
-		current.setNext(null);
-		
 	}
 	
 	/*
@@ -173,7 +178,7 @@ public class SmurfList {
 		SmurfNode iterator = slist.getHead();
 		while (iterator != null){
 			if (iterator.smurf != null){
-				System.out.print(iterator.getSmurf().getName() + ", ");
+				System.out.print(iterator.getSmurf().getName() + iterator.getSmurf().getSize()+", ");
 			} else {
 				System.out.print("NULL, ");
 			}
@@ -200,23 +205,15 @@ public class SmurfList {
 		System.out.println("Existiert Papa Schlumpf in der Liste?    : "+list.containsSmurf(smurfs[0])+" An der Stelle "+list.smurfPosition(smurfs[0]));
 		System.out.println("Existiert Bilbo Beutlin in der Liste?  : "+list.containsSmurf(smurfs[3])+" An der Stelle "+list.smurfPosition(smurfs[3]));
 		
+		printSmurfList(list);
 		System.out.println("Schluempfe werden verkleinert!");
 		list.downsizeSmurfs(4);
 		printSmurfList(list);
-		System.out.println(s1.getSize()+"Papa Schlumpf");
-		System.out.println(s2.getSize()+"Schlumpfine");
-		System.out.println(s5.getSize()+"SUIII");
 		list.stretchSmurfs(4);
 		System.out.println("Schluempfe werden vergrößert!");
 		printSmurfList(list);
-		System.out.println(s1.getSize()+"Papa Schlumpf");
-		System.out.println(s2.getSize()+"Schlumpfine");
-		System.out.println(s5.getSize()+"SUIII");
 		list.stretchSmurfs(4);
 		System.out.println("Schluempfe werden vergrößert!");
 		printSmurfList(list);
-		System.out.println(s1.getSize()+"Papa Schlumpf");
-		System.out.println(s2.getSize()+"Schlumpfine");
-		System.out.println(s5.getSize()+"SUIII");
 	}
 }

@@ -4,7 +4,7 @@ public class List {
 
 	// Aufgabe 1
 	public void addElement(Element newElement, int position) {
-		if(0<position&&position<getSize())
+		if(1>position||position>getSize()+1)
 		return;
 
 		if(head==null){
@@ -19,7 +19,7 @@ public class List {
 		}
 
 		Element current=head;
-		for (int i = 1; i < position; i++) {
+		for (int i = 1; i < position-1; i++) {
 			if(current.getNext()!=null)
 			current=current.getNext();
 		}
