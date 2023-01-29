@@ -1,0 +1,67 @@
+Frage 1: Welche Eigenschaft muss ein Interface haben damit es als FunctionalInterface eingesetzt werde kann? (2 Punkte)
+Antwort 1:
+
+Es hat nur eine abstrakte Methode;
+
+
+Frage 2: Betrachten Sie das Interface MultiplySAM und die Klasse TestMultiplySAM. 
+         Geben Sie den Lambda Ausdruck an, der in der testMultiply() Methode statt dem null stehen muss,
+         damit der input mit dem faktor multipliziert wird. (3 Punkte)
+
+@FunctionalInterface
+public interface MultiplySAM {
+	int multiplyInputWithFaktor(int input, int faktor);
+}
+
+public class TestMultiplySAM {
+	public void testMultiply(){
+		MultiplySAM multiplySam = null;
+		MultiplySam.multiplyInputWithFaktor(1,2);
+	}
+}
+
+Antwort 2:
+
+(i,f)->i*f
+
+Frage 3: Betrachten Sie die frage3Methode.Beschreiben Sie, was die einzelnen verwendeten Streammethoden in der frage3Methode bewirken. (3 Punkte)
+
+public List<Integer> frage3Methode(List<Integer> intList) {
+	return intList.stream()
+				  .filter(i -> i % 2 != 0)
+				  .collect(Collectors.toList());
+}
+
+Antwort 3:
+intList.stream() Beschreibung: Ein Stream der Liste intLlist 
+.filter(i -> i % 2 != 0) Beschreibung: filtert ob die Zahl gerade ist
+.collect(Collectors.toList()) Beschreibung: hier werden die geraden Zahlen gesammelt und als liste zurückgegeben
+
+
+
+Frage 4: Betrachten Sie die Klasse MyValue sowie frage4Methode.Beschreiben Sie, was die einzelnen unten vorgegebenen Streammethoden in der frage4Methode bewirken.(5 Punkte)
+
+public class MyValue {
+	private Integer value;
+	
+	public MyValue(Integer value) {
+		this.value = value;
+	}
+	
+	public Integer getValue() {
+		return value;
+	}
+}
+
+		 
+public static Integer frage4Methode(List<Integer> intList) {
+	return intList.stream()
+				  .map(MyValue::new)
+				  .map(v -> v.getValue())
+				  .reduce(0, (a, b) -> a + b);
+}
+
+Antwort 4:
+.map(MyValue::new) Beschreibung: 
+.map(v -> v.getValue()) Beschreibung: 
+.reduce(0, (a, b) -> a + b) Beschreibung: 

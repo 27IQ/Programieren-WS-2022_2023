@@ -1,0 +1,21 @@
+Frage 1: Siehe Graph in PDF. Führen Sie einen Tiefendurchlauf mit Besuchsmarkierung auf dem Startknoten 6 aus.
+Schreiben Sie die Zahlen der besuchten Knoten in Besuchsreihenfolge auf.
+Sollten mehrere Folgeknoten möglich sein, beginnen Sie mit der kleinsten Zahl. (4 Punkte)
+Antwort 1: 
+ 
+ 6,2,10,3,8,7,5,9
+ 
+Frage 2: Was ist der Unterschied zwischen = und ==? Wann werden die jeweiligen Zeichen benutzt?  (2 Punkte)
+Antwort 2: 
+ = um eine wert zu zuweisen
+ == boolesche abfarage ob ewas gleich ist
+ 
+Frage 3: Schreiben sie die Initialisierung eines zweidimensionalen String-Arrays mit Größe0 2 und Größe1 5. (2 Punkte)
+Antwort 3: 
+String[][] arr=new String[2][5];
+
+
+Frage 4: Worin besteht der Unterschied zwischen Unchecked- und Checked-Exceptions? (2 Punkte)
+Antwort 4: 
+
+Unchecked Exeptions werden gefangen ohne darauf zu reagieren. Daher ist bei  Checked Exeptions ist der catch-block nicht leer.
