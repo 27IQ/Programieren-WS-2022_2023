@@ -30,30 +30,30 @@ public class Streams {
 	
 	//Aufgabe 1
 	public List<Person> filterByName(String name) {
-		return null;
+		return employees.stream().filter(s -> s.getName().equals(name)).collect(Collectors.toList());
 	}
 	
 	public List<Person> filterByMinAge(int age) {
-		return null;
+		return employees.stream().filter(a -> a.getAge()>=age).collect(Collectors.toList());
 	}
 	
 	//Aufgabe 2
 	public void sortByName() {
-		
+		employees = employees.stream().sorted((s1,s2)->s1.getName().compareTo(s2.getName())).collect(Collectors.toList());
 	}
 	
 	public void sortByAge() {
-		
+		employees = employees.stream().sorted((s1,s2)->s1.getAge()-s2.getAge()).collect(Collectors.toList());
 	}
 	
 	//Aufgabe 3
 	public void updateAge(int year) {
-		
+		employees.stream().forEach(s->s.setAge(s.getAge()+year));
 	}
 	
 	//Aufgabe 4
 	public double getAverageAge() {
-		return 0.0;
+		return employees.stream().collect(Collectors.averagingDouble(s->s.getAge()));
 	}
 	
 	public static void main(String[] args) {
